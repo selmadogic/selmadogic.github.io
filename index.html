@@ -17,7 +17,7 @@
 	  stroke-width: 3px;
 	}
 	.node text {
-	  font: 10px century gothic;
+	  font: 12px century gothic;
 	}
 	.link {
 	  fill: none;
@@ -166,7 +166,7 @@ var i = 0,
 var tree = d3.layout.tree()
 	.size([height, width]);
 var diagonal = d3.svg.diagonal()
-	.projection(function(d) { return [d.y, d.x]; });
+	.projection(function(d) { return [d.x, d.y]; });
 var svg = d3.select("body").append("svg")
 	.attr("width", width + margin.right + margin.left)
 	.attr("height", height + margin.top + margin.bottom)
@@ -183,14 +183,14 @@ function update(source) {
   var nodes = tree.nodes(root).reverse(),
 	  links = tree.links(nodes);
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+  nodes.forEach(function(d) { d.y = d.depth * 100; });
   // Update the nodes…
   var node = svg.selectAll("g.node")
 	  .data(nodes, function(d) { return d.id || (d.id = ++i); });
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("g")
 	  .attr("class", "node")
-	  .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+	  .attr("transform", function(d) { return "translate(" + source.x0 + "," + source.y0 + ")"; })
 	  .on("click", click);
   nodeEnter.append("circle")
 	  .attr("r", 1e-6)
