@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 	
     <title>Sales Certified View</title>  
-    <h1>Sales Certified View</h1>
+    
 
     <style>
 	
@@ -183,7 +183,7 @@ function update(source) {
   var nodes = tree.nodes(root).reverse(),
 	  links = tree.links(nodes);
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 200; });
+  nodes.forEach(function(d) { d.y = d.depth * 100; });
   // Update the nodes…
   var node = svg.selectAll("g.node")
 	  .data(nodes, function(d) { return d.id || (d.id = ++i); });
