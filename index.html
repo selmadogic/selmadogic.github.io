@@ -196,7 +196,7 @@ function update(source) {
 	  .attr("r", 1e-6)
 	  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
   nodeEnter.append("text")
-	  .attr("y", function(d) { return d.children || d._children ? -9 : 9; })
+	  .attr("y", function(d) { return d.children || d._children ? -5 : 5; })
 	  .attr("dx", ".35em")
 	  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
 	  .text(function(d) { return d.name; })
